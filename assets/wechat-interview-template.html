@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ARTICLE_TITLE}}</title>
+<style>
+:root{color-scheme:light;--navy:#162540;--muted:#6D6261}
+*{box-sizing:border-box}
+body{margin:0;background:#F0EDE8;color:#262943;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+.shell{max-width:710px;margin:0 auto;padding:20px 22px 38px}
+.tools{padding:14px 17px;margin:0 0 18px;background:#fffdf8;border:1px solid #E6DDD2;border-radius:10px}
+.eyebrow{margin:0 0 7px;font-size:12px;font-weight:700;color:#6A5550;letter-spacing:1.1px}
+.title{margin:0 0 11px;color:var(--navy);font-size:16px;line-height:1.55;font-weight:600}
+.actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button,.asset{border:1px solid var(--navy);border-radius:6px;padding:7px 12px;font-family:inherit;font-size:13px;line-height:1.6;cursor:pointer;white-space:nowrap}
+button{background:var(--navy);color:#fff}
+#copy-title,.asset{background:#fffdf8;color:var(--navy);text-decoration:none}
+button:focus-visible,.asset:focus-visible{outline:3px solid #B69354;outline-offset:2px}
+#copy-status,.hint{color:var(--muted);font-size:12px;line-height:1.6}
+.hint{margin:7px 0 0}
+.sheet{padding:22px 26px 20px;background:#fff;border-radius:13px;box-shadow:0 9px 34px rgba(62,46,33,.07)}
+@media(max-width:510px){.shell{padding:10px 10px 24px}.tools{padding:12px;margin-bottom:10px}.sheet{padding:12px 13px 17px;border-radius:9px}}
+</style>
+</head>
+<body>
+<main class="shell">
+<section class="tools" aria-label="草稿复制工具">
+<p class="eyebrow">公众号图文 · 排版预览</p>
+<p class="title" id="draft-title">{{ARTICLE_TITLE}}</p>
+<div class="actions"><button id="copy-body" type="button">复制排版正文</button><button id="copy-title" type="button">复制标题</button><a class="asset" href="{{COVER_SRC}}" download>下载头图</a><span id="copy-status" role="status" aria-live="polite"></span></div>
+<p class="hint">正文复制后可粘贴到公众号编辑器。如果头图没有带过去，用「下载头图」取得文件再上传。</p>
+</section>
+<div class="sheet">
+<article id="wechat-body">
+<section aria-label="人物访谈头图" style="margin:0 0 32px;background-color:#162540;background-image:repeating-linear-gradient(135deg,transparent 0,transparent 10px,rgba(246,231,202,.055) 10px,rgba(246,231,202,.055) 11px);border-radius:12px;overflow:hidden;">
+<section style="padding:24px 21px 22px;">
+<p style="margin:0 0 4px;color:#F1D9A6;font-size:13px;font-weight:700;line-height:1.6;letter-spacing:3px;">✦&nbsp; {{SERIES_NAME}}</p>
+<p style="margin:0 0 15px;color:#E0D9CE;font-size:11px;line-height:1.6;letter-spacing:1.5px;">{{SERIES_LABEL}}</p>
+<p style="margin:0 0 8px;font-size:37px;font-weight:700;line-height:1.18;letter-spacing:2px;color:#FFFAEE;font-family:'Songti SC','Noto Serif CJK SC',Georgia,serif;">{{PERSON_NAME}}</p>
+<p style="margin:0;font-size:18px;line-height:1.6;color:#F1D9A6;font-family:'Songti SC','Noto Serif CJK SC',Georgia,serif;">{{COVER_SUBTITLE}}</p>
+</section>
+<p style="margin:0;background-color:#162540;"><img src="{{COVER_SRC}}" alt="{{COVER_ALT}}" style="display:block;width:100%;max-width:100%;height:auto;margin:0;border:0;"></p>
+<p style="margin:0;padding:11px 21px 13px;border-top:1px solid #506079;color:#E9DDC9;font-size:13px;line-height:1.6;letter-spacing:1.5px;">采访｜{{INTERVIEWER}}</p>
+</section>
+
+<section style="margin:0 0 32px;padding:19px 17px 6px;background-color:#F6F1E7;background-image:repeating-linear-gradient(135deg,transparent 0,transparent 7px,rgba(133,94,43,.06) 7px,rgba(133,94,43,.06) 8px);border-top:2px solid #CBB285;border-radius:0 0 8px 8px;">
+<h2 style="margin:0 0 12px;font-size:16px;line-height:1.6;font-weight:700;color:#742C40;">{{INTRO_TITLE}}</h2>
+<p style="margin:0 0 17px;font-size:14px;line-height:1.95;letter-spacing:0.24px;color:#323038;">{{INTRODUCTION}}</p>
+</section>
+<h2 style="margin:30px 0 12px;padding:0 0 10px;border-bottom:1px solid #DED4C7;color:#162540;font-size:21px;line-height:1.52;letter-spacing:.15px;">
+<span style="display:block;margin:0 0 3px;color:#742C40;font-size:12px;letter-spacing:2px;line-height:1.45;">✦&nbsp; {{SECTION_NUMBER}}</span>{{SECTION_TITLE}}</h2>
+<blockquote style="margin:0 0 17px;padding:10px 12px;border-left:3px solid #BA9A61;background-color:#F6F1E7;background-image:repeating-linear-gradient(135deg,transparent 0,transparent 7px,rgba(133,94,43,.06) 7px,rgba(133,94,43,.06) 8px);color:#855E2B;font-size:14px;line-height:1.75;font-family:'Songti SC','Noto Serif CJK SC',Georgia,serif;">{{SECTION_QUOTE}}</blockquote>
+<p style="margin:17px 0 12px;padding:9px 12px;background-color:#EDF1F7;border-radius:5px;color:#162540;font-size:14px;line-height:1.8;font-weight:600;"><strong style="color:#162540;">{{INTERVIEWER}}：</strong>{{QUESTION}}</p>
+<p style="margin:0 0 17px;font-size:14px;line-height:1.95;letter-spacing:0.24px;color:#323038;"><strong style="color:#742C40;">{{PERSON_NAME}}：</strong>{{ANSWER}}</p>
+<p style="margin:0 0 17px;font-size:14px;line-height:1.95;letter-spacing:0.24px;color:#323038;">{{ANSWER_CONTINUATION}}</p>
+<p style="margin:0 0 17px;font-size:14px;line-height:1.95;letter-spacing:0.24px;color:#323038;"><strong style="color:#742C40;">小编OS：</strong>{{EDITOR_NOTE}}</p>
+<p aria-hidden="true" style="margin:30px 0 10px;text-align:center;color:#855E2B;font-size:13px;letter-spacing:7px;">· ✦ ·</p>
+<section style="margin:18px 0 0;padding:22px 18px 7px;background-color:#F5EAE9;border-top:2px solid #742C40;border-radius:0 0 8px 8px;">
+<h2 style="margin:0 0 12px;font-size:18px;line-height:1.5;color:#742C40;font-family:'Songti SC','Noto Serif CJK SC',Georgia,serif;">结语｜{{INTERVIEWER}}</h2>
+<p style="margin:0 0 17px;font-size:14px;line-height:1.95;letter-spacing:0.24px;color:#323038;">{{CLOSING_PARAGRAPH}}</p>
+</section>
+<p aria-hidden="true" style="margin:26px 0 4px;font-size:12px;line-height:1.5;letter-spacing:2px;color:#6D6261;text-align:center;">✦</p>
+<section data-optional="appendix" style="margin:26px 0 0;">
+<p style="margin:0 0 12px;font-size:12px;line-height:1.6;color:#6D6261;text-align:center;">（正文完）</p>
+<p style="margin:0 0 17px;font-size:14px;line-height:1.95;letter-spacing:0.24px;color:#323038;">{{APPENDIX_INTRODUCTION}}</p>
+{{APPENDIX_HTML}}
+</section>
+</article>
+</div>
+</main>
+<script>
+const copyStatus = document.getElementById('copy-status');
+function selectAndCopy(el, message) {
+  const selection = window.getSelection();
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  selection.removeAllRanges();
+  selection.addRange(range);
+  let copied = false;
+  try { copied = document.execCommand('copy'); } catch (_) {}
+  if (copied) selection.removeAllRanges();
+  copyStatus.textContent = copied ? message : '已选中，请按 ⌘C 复制';
+}
+document.getElementById('copy-body').addEventListener('click', function() {
+  selectAndCopy(document.getElementById('wechat-body'), '已复制排版正文');
+});
+document.getElementById('copy-title').addEventListener('click', function() {
+  selectAndCopy(document.getElementById('draft-title'), '已复制标题');
+});
+</script>
+</body>
+</html>

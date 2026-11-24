@@ -1,4 +1,4 @@
 interface:
   display_name: "明星闪耀人物访谈"
-  short_description: "把Super AI Lab采访逐字稿整理成受访者确认稿"
-  default_prompt: "Use $mingyuan-star-interview to turn this interview transcript into a source-faithful 明星闪耀 confirmation draft."
+  short_description: "将访谈逐字稿整理为保留原声的确认稿，按需生成公众号排版预览"
+  default_prompt: "请用 $mingyuan-star-interview 把这份访谈整理成保留本人语气的问答确认稿。"
